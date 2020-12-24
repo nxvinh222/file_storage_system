@@ -396,6 +396,7 @@ int download(char *link){
 void downloadFile() {
 	char selectLink[50];
 	if(handleSelectDownloadFile(selectLink)==1){
+		printf("select link: %s\n", selectLink);
 		printf("...............................................\n");
 		if(download(selectLink) == -1) {
 			printf("Having trouble, stop downloading the file!!\n");
@@ -480,7 +481,12 @@ void fileProcess(char *cur_file) {
 			getDirectory();
 			break;
 		case '2':
-
+			// printf("curr file: %s\n", cur_file);
+			if(download(cur_file) == -1) {
+			printf("Having trouble, stop downloading the file!!\n");
+			return;
+		}
+		printf("Donwload Successful!!!");
 			break;
 		case '3':
 			break;
