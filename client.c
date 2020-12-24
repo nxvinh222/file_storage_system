@@ -134,8 +134,18 @@ void getDirectory(){
 	//receive list path, list folder path, list file path from server 
 	receiveMessage(client_sock,&recvMsg1);
 	receiveMessage(client_sock,&recvMsg2);
-	if(recvMsg1.length>0) listFolder = str_split(recvMsg1.payload, '\n');
-	if(recvMsg2.length>0) listFile = str_split(recvMsg2.payload, '\n');
+
+	if(recvMsg1.length>0) {
+		listFolder = str_split(recvMsg1.payload, '\n');
+	}
+	if(recvMsg2.length>0) {
+		listFile = str_split(recvMsg2.payload, '\n');
+	}
+	else
+	{
+		listFile = NULL;
+	}
+	
 	
 }
 
@@ -522,6 +532,7 @@ void folderProcess(char * pre_folder, char *cur_folder) {
 * @return void
 */
 void openFolder(char *folder) {
+	getDirectory();
 	showDirectory(folder);
 	//for(int u=0;u<=stack->top;u++)
 	//printf("++++++Top Stack++++++: %s\n",stack->array[u]);
@@ -765,6 +776,8 @@ void requestFileFunc() {
 			downloadFile();
 			break;
 		case '3':
+			printf("root: %s\n", root);
+			getDirectory();
 			openFolder(root);
 			break;
 		case '4':

@@ -4,5 +4,5 @@
 1. Server: Cấp 1 thư mục trên server cho người dùng, chỉ cho phép người dùng thao tác trên thư mục được cấp
 2. Client: Download, upload, tạo thư mục con, thao tác với file và thư mục con
 ### Group:
-* Phạm Ngọc Bá - 20160300
-* Phùng Thành Công - 20160500
+* Nguyễn Xuân Vinh - 20176911
+* Trần Anh Tuấn - 20176897
